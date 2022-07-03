@@ -9,3 +9,12 @@ Basic Study
 K-Space: https://mriquestions.com/what-is-k-space.html
 
 Deep learning for image registration: https://web.stanford.edu/~yplu/imgreg.pdf
+
+
+## Image Registration
+
+
+## 
+
+
+## Deep Equilibrium Models
