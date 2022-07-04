@@ -35,28 +35,8 @@ Material: https://en.wikipedia.org/wiki/Image_registration
 ----
 
 
-## 
 
 
-## Deep Equilibrium Models
-
-### `[DEQ Model] 
-
-`Equilibrium: a state of balance between opposing forces or actions`
-
-<!--
-Material: http://implicit-layers-tutorial.org/
--->
-
-----
-```diff
-+ Goal 1: Express the entire deep network as an equilibrium computation
-
-+ Goal 2: Find the fixed point directly via root finding rather than fixed point iteration alone.
-
-- Be careful: 
-```
-----
 
 
 
@@ -65,6 +45,17 @@ Material: http://implicit-layers-tutorial.org/
 
 ## Deep Implicit Layers
 
+----
+##### `Outline`
+
+(1) Backround and applications of implicit layers
+(2) The mathematics of implicit layers
+(3) Deep Equilibrium Models
+(4) Neural ODEs
+(5) Differentiable optimization
+(6) Future directions
+
+----
 
 Layer: Differentiable parametric function
 
@@ -86,3 +77,89 @@ Powerful representations:
 Memory efficiency
 Simplicity:
 Abstraction: 
+
+
+
+
+
+#### Motivating a simple implicit layer
+
+Traditional deep network  	      |      Implicit Layers
+:---------------: | :-------------:
+<img width="450" alt="IMG" src="https://user-images.githubusercontent.com/73331241/177086406-94c1d21a-4cfa-45f5-bed6-6050d91f7495.png">  | <img width="450" alt="IMG" src="https://user-images.githubusercontent.com/73331241/177086397-e13db113-81dd-4270-aa82-8dba7d56c3b9.png">
+|  | At every step, rather than adding a bias, we re-inject the input
+|  | We use the same weight at each layer (weight-tied model)
+
+
+#### Iterations of deep weight-tied models
+
+----
+```diff
+@@ Background: As we repeat exact same function over again, we can view this system as dynamical system. @@
+
++ Key: We can design the network such that this iteration will converge to some fixed point, or equilibrium point.
+
+# z: Hidden vector. It's acting like a state of the system
+```
+* `Recurrent Backpropagatino Network [(Minimal)Deep Equilibrium Model]`
+> <img width="450" alt="IMG" src="https://user-images.githubusercontent.com/73331241/177087570-91d8d20e-94f0-4d5f-9345-bf63c17b50f6.png">
+
+* `Equilibrium point (fixed point)`
+> <img width="100" alt="IMG" src="https://user-images.githubusercontent.com/73331241/177087775-fbb49c7a-3acd-4203-9ccd-1c59ae186592.png">
+
+----
+
+Differentiation notation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Deep Equilibrium Models
+
+### `[DEQ Model] 
+
+`Equilibrium: a state of balance between opposing forces or actions`
+
+<!--
+Material: http://implicit-layers-tutorial.org/
+-->
+
+----
+```diff
++ Goal 1: Express the entire deep network as an equilibrium computation
+
++ Goal 2: Find the fixed point directly via root finding rather than fixed point iteration alone.
+
+- Be careful: 
+```
+----
