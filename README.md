@@ -10,9 +10,93 @@ K-Space: https://mriquestions.com/what-is-k-space.html
 
 Deep learning for image registration: https://web.stanford.edu/~yplu/imgreg.pdf
 
+
 ### [Prerequisite] `Jacobian`
 
 https://www.youtube.com/watch?v=wCZ1VEmVjVo
+
+
+##### [Jacobian] Introduction
+* Intuition: To calculate 2 inputs and 2 outputs functions.
+
+
+> <img width="450" alt="IMG" src="https://user-images.githubusercontent.com/73331241/177341689-f6a9e1f7-16ea-4e9e-8b17-28cafbff5cc2.png">
+
+----
+```diff
++ Definition: the process of transforming different sets of data into one coordinate system.
+
++ Purpose: Registration is necessary in order to be able to compare or integrate the data obtained from these different measurements.
+
+- Be careful: 
+```
+
+----
+
+
+##### `[Jacobian] Linear Maps`
+
+----
+```diff
++ Property 1: Parallel lines stay parallel
++ Property 2: All the spacings preserved with exact scaling factor
+!             Determinant = scaling factor for areas or lengths
++ Property 3: Origin is fixed
+
+- Be careful: 
+```
+
+
+> <img width="450" alt="IMG" src="https://user-images.githubusercontent.com/73331241/177343487-551a3579-40cd-4b24-a062-1f435ad90098.png">
+----
+
+
+
+##### `[Jacobian] Derivatives in 1D`
+
+----
+```diff
++ Key 1: We want to know how it is different between `a` neighborhood and `f(a)` neighborhood.
++ Key 2: We consider the scale difference results from Linear Map.
++ Key 3: The value of Jacobian Matrix depends on `center of perspective (a)`
+```
+
+> <img width="450" alt="IMG" src="https://user-images.githubusercontent.com/73331241/177348225-ce94a699-9f62-4952-8269-cca3a493bc15.png">
+----
+
+
+##### `[Jacobian] Derivatives in 2D`
+
+----
+```diff
++ Key 1: Jacobian Matrix depends on the center of perspective (a,b).
++ Key 2: Jacobian matrix is the matrix representing best linear map approximation of f near (a,b)
++ Key 3: Even 2D transformation doesn't look linear, when we zoom in, we can consider it as a Linear Map.         
++ Key 4: Jacobian determinant is how much areas scale near (a,b)
+
+```
+> <img width="450" alt="IMG" src="https://user-images.githubusercontent.com/73331241/177349789-5c13240c-ee27-4804-940a-983143e2b7b1.png">
+
+----
+
+##### `[Jacobian] Calculate Jacobian Matrix`
+
+* We have function `f` and a point `(a,b)`.
+
+* In Column 1, we fix the y value and take patial derivatives.
+
+> <img width="400" alt="IMG" src="https://user-images.githubusercontent.com/73331241/177352819-43bc8c3f-7bb8-4c0d-9862-2b7fdecb41b4.png">
+
+* In Column 2, we fix the x value and take patial derivatives.
+
+> <img width="400" alt="IMG" src="https://user-images.githubusercontent.com/73331241/177353212-f0741964-1eb1-4e88-a7c8-993bcde13ac5.png">
+
+> <img width="400" alt="IMG" src="https://user-images.githubusercontent.com/73331241/177353373-c2acad7b-40ce-4640-a86b-d3f1117e02e4.png">
+
+* Jacobian Matrix
+
+> <img width="200" alt="IMG" src="https://user-images.githubusercontent.com/73331241/177352315-15f2fad9-2352-48d0-a8e0-f3c749335f05.png">
+
 
 
 ### [Prerequisite] `Image Registration`
