@@ -158,6 +158,7 @@ Traditional deep network  	      |      Implicit Layers
 
 Let's find a fixed point of $z^* = σ(Wz^* + Ux + b)$
 
+
 #### `Power of the DEQ representation`
 
 ----
@@ -177,6 +178,13 @@ Result: if we compute an equilibirum point of this function, then the second com
 This logic of course applies to any computation graph, we can concatentate all intermediate products of a computation graph into the vector z, and have the function f be the function that applies the “next” computation in the graph to each of these elements.
 
 Be careful: While this construction theoretically shows the power of a single DEQ layer, we should emphasize that this is not a construction that we actually use it practice.
+
+we can just trivially concatenate the two equilibrium solutions to get the solution of a joint equilibrium problem over two solutions.
+
+
+
+#### `DEQ Backpropagation`
+
 
 
 How one layer is enough?
