@@ -112,54 +112,51 @@ Traditional deep network  	      |      Implicit Layers
 Differentiation notation
 
 
+  
+## `Deep Equilibrium Models`
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Deep Equilibrium Models
-
-### `[DEQ Model] 
-
-`Equilibrium: a state of balance between opposing forces or actions`
-
-<!--
-Material: http://implicit-layers-tutorial.org/
--->
+Equilibrium: a state of balance between opposing forces or actions`
 
 ----
 ```diff
-+ Goal 1: Express the entire deep network as an equilibrium computation
++ Goal 1:     Express the entire deep network as an equilibrium computation
 
-+ Goal 2: Find the fixed point directly via root finding rather than fixed point iteration alone.
++ Goal 2:     Find the fixed point(z*) directly via root finding rather than fixed point iteration alone.
 
-- Be careful: 
+- Be careful: Find z* without performing the forward iteration, but by directly attempting to find a root of this equilibrium equation.
 ```
+
+
+### `[DEQ Model] Application`
+
+a variety of large-scale vision and NLP tasks
+
+
+### `[DEQ Model] Deep networks and fixed point equations`
+
+----
+```diff
++ Key: Construct implicit layer and repeat this update an infinite times
+
+! finding: When we iterate i by infinite time, for most “typical” deep layers the valued actually converge to a fixed point or equilibrium point: z*.
+
++ Optimal formula: input injection Ux is required in the model. Because the equilibrium point doesn’t depend on any “initial” value of z1.
+```
+
+Since the output $(h(x))$ can be a different size as the hidden unit, we use a separate weight to produce the final output of the function
+
+Traditional deep network  	      |      Implicit Layers
+:---------------: | :-------------:
+<img width="450" alt="IMG" src="https://user-images.githubusercontent.com/73331241/177279685-f1a6e33b-96c8-45a9-8da0-0b674794207b.png">  | <img width="450" alt="IMG" src="https://user-images.githubusercontent.com/73331241/177279692-1252ad71-82ac-4045-b7fb-883bbcb96bbf.png">
+|  | $z_1 = 0$ <br /> $z_{i+1} = σ(Wz_i + Ux + b), i = 1, ..., k-1$ <br /> $ h(x) = W_kz_k + b_k$
+|  | $z^* = σ(Wz^* + Ux + b)$
+
+
+### `[DEQ Model] Properties of DEQs: Representational power, and implicit differentiation`
+
+
+* Summary of DEQ approach
+
+> <img width="400" alt="IMG" src="https://user-images.githubusercontent.com/73331241/177270482-64ffc1cb-0379-463b-ab19-ab3ad0a953a7.png">
+
 ----
