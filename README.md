@@ -69,7 +69,7 @@ Explicit Layers  	      |      Implicit Layers
 :---------------: | :-------------:
 Computation graph for computing the forward pass, and backprop through it.  | Satisfying some joint condition of the input and output
 
-> <img width="450" alt="IMG" src="https://user-images.githubusercontent.com/73331241/177073666-a100bf07-ad31-4c04-82d0-ab826a4a3fad.png">
+> <img width="200" alt="IMG" src="https://user-images.githubusercontent.com/73331241/177073666-a100bf07-ad31-4c04-82d0-ab826a4a3fad.png">
 
 Why use implicit layers?  	      
 :---------------: 
@@ -145,6 +145,8 @@ a variety of large-scale vision and NLP tasks
 
 Since the output $(h(x))$ can be a different size as the hidden unit, we use a separate weight to produce the final output of the function
 
+----
+
 Traditional deep network  	      |      Implicit Layers
 :---------------: | :-------------:
 <img width="450" alt="IMG" src="https://user-images.githubusercontent.com/73331241/177279685-f1a6e33b-96c8-45a9-8da0-0b674794207b.png">  | <img width="450" alt="IMG" src="https://user-images.githubusercontent.com/73331241/177279692-1252ad71-82ac-4045-b7fb-883bbcb96bbf.png">
@@ -154,6 +156,35 @@ Traditional deep network  	      |      Implicit Layers
 
 ### `[DEQ Model] Properties of DEQs: Representational power, and implicit differentiation`
 
+Let's find a fixed point of $z^* = σ(Wz^* + Ux + b)$
+
+#### `Power of the DEQ representation`
+
+----
+```diff
++ Key: Any deep network - of any depth, with any connectivity) - can be represented as a single layer DEQ model with the same number of parameters.
+
+! finding: 
+
++ Optimal formula: 
+```
+
+* Proof of the DEQ flexibility
+
+
+Result: if we compute an equilibirum point of this function, then the second component z⋆2 is precisely the output of the original concatenated network.
+
+This logic of course applies to any computation graph, we can concatentate all intermediate products of a computation graph into the vector z, and have the function f be the function that applies the “next” computation in the graph to each of these elements.
+
+Be careful: While this construction theoretically shows the power of a single DEQ layer, we should emphasize that this is not a construction that we actually use it practice.
+
+
+How one layer is enough?
+(1) Suppose we had a system that first computed an equilibrium of the function z⋆1=f1(z⋆1,x), then next computed an second equilibrium using z⋆1 as input, i.e., z⋆2=f(z⋆2,z⋆1).
+
+(2) Again, however, it is possible to set this joint problem up as a single equilibrium problem instead, namely computing an equilibrium point of the system.
+
+----
 
 * Summary of DEQ approach
 
