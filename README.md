@@ -10,8 +10,12 @@ K-Space: https://mriquestions.com/what-is-k-space.html
 
 Deep learning for image registration: https://web.stanford.edu/~yplu/imgreg.pdf
 
+### [Prerequisite] `Jacobian`
 
-### `Image Registration`
+https://www.youtube.com/watch?v=wCZ1VEmVjVo
+
+
+### [Prerequisite] `Image Registration`
 
 ----
 ```diff
