@@ -270,7 +270,29 @@ $$z^⋆=f(z^⋆,x)⟺z^⋆_1=g_1(x),z^⋆_2=g_2(z^⋆_1)=g_2(g_1(x))$$
 Note: if we compute an equilibirum point of this function, then the second component $z^⋆_2$ is precisely the output of the original concatenated network.
 
 
+
 #### `DEQ Backpropagation`
+
+----
+```diff
++ Key 1: vector-jacobian product is the key aspect to integrating these DEQ layers within backpropagation
+
++ Key 2: vector-jacobian product helps us to integrate the DEQ layer within standard automatic differential tools.
+
++ Optimal formula: 
+
+- Be careful: 
+```
+----
+
+How DEQ can have relatively large number of parameter with small hidden unit?
+
+> have the hidden layer "internal" to the residual cell be larger than the hidden unit exposed to the DEQ model.
+
+#### Question
+
+Which parameter will become equilibrium? The parameters of network?
+
 
 
 
