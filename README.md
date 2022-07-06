@@ -19,19 +19,8 @@ https://www.youtube.com/watch?v=wCZ1VEmVjVo
 ##### [Jacobian] Introduction
 * Intuition: To calculate 2 inputs and 2 outputs functions.
 
-
 > <img width="450" alt="IMG" src="https://user-images.githubusercontent.com/73331241/177341689-f6a9e1f7-16ea-4e9e-8b17-28cafbff5cc2.png">
 
-----
-```diff
-+ Definition: the process of transforming different sets of data into one coordinate system.
-
-+ Purpose: Registration is necessary in order to be able to compare or integrate the data obtained from these different measurements.
-
-- Be careful: 
-```
-
-----
 
 
 ##### `[Jacobian] Linear Maps`
@@ -251,23 +240,40 @@ Let's find a fixed point of $z^* = σ(Wz^* + Ux + b)$
 
 ----
 ```diff
-+ Key: Any deep network - of any depth, with any connectivity) - can be represented as a single layer DEQ model with the same number of parameters.
++ Key 1: Any deep network - of any depth, with any connectivity - can be represented as a single layer DEQ model with the same number of parameters.
+
++ Key 2: We can concatenate all intermediate products of computation graph into the vector z, and have function f that applies the "next" computation.
 
 ! finding: 
 
 + Optimal formula: 
+
+- Be careful: While this construction theoretically shows the power of a single DEQ layer, we should emphasize that this is not a construction that we actually use it practice.
 ```
 
-* Proof of the DEQ flexibility
+
+##### `Proof of the DEQ flexibility`
+
+(1) `Traditional composition of two functions`
+
+$$y = g_2(g_1(x))$$
+
+(2) Transfer traditional one into a single layer DEQ by `simply concatenating` all the intermediate terms of this function into a long vector.
+
+$$f(z,x) = f(\begin{bmatrix}z_1 \\\z_2 \end{bmatrix},x) = \begin{bmatrix}g_1(x) \\\g_2(z_1) \end{bmatrix}$$
 
 
-Result: if we compute an equilibirum point of this function, then the second component z⋆2 is precisely the output of the original concatenated network.
+$$z^⋆=f(z^⋆,x)⟺z^⋆_1=g_1(x),z^⋆_2=g_2(z^⋆_1)=g_2(g_1(x))$$
 
-This logic of course applies to any computation graph, we can concatentate all intermediate products of a computation graph into the vector z, and have the function f be the function that applies the “next” computation in the graph to each of these elements.
+Note: if we compute an equilibirum point of this function, then the second component $z^⋆_2$ is precisely the output of the original concatenated network.
 
-Be careful: While this construction theoretically shows the power of a single DEQ layer, we should emphasize that this is not a construction that we actually use it practice.
 
-we can just trivially concatenate the two equilibrium solutions to get the solution of a joint equilibrium problem over two solutions.
+
+$$ z^⋆ = \begin{bmatrix}z^*_1 \\z^*_2 \end{bmatrix} = \begin{bmatrix}f_1(z^*, x) \\f_2(z^*_2, z^*_1) \end{bmatrix} = f(z^*,x) $$
+
+$$z^⋆ = \begin{bmatrix}z^*_1 \\z^*_2 \end{bmatrix} = \begin{bmatrix}f_1(z^*, x) \\f_2(z^*_2, z^*_1) \end{bmatrix} = f(z^*,x)$$
+
+$z^⋆ = \begin{bmatrix}z_1^* \\z_2^* \end{bmatrix} = \begin{bmatrix}f_1(z^*, x) \\f_2(z_2^*, z_1^*) \end{bmatrix} = f(z^*,x)$
 
 
 
