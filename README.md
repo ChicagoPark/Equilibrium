@@ -265,16 +265,9 @@ $$f(z,x) = f(\begin{bmatrix}z_1 \\\z_2 \end{bmatrix},x) = \begin{bmatrix}g_1(x) 
 
 $$z^⋆=f(z^⋆,x)⟺z^⋆_1=g_1(x),z^⋆_2=g_2(z^⋆_1)=g_2(g_1(x))$$
 
+> <img width="200" alt="IMG" src="https://user-images.githubusercontent.com/73331241/177514164-92fe890b-ab4f-4076-8cd2-8ef2b1c685d7.png">
+
 Note: if we compute an equilibirum point of this function, then the second component $z^⋆_2$ is precisely the output of the original concatenated network.
-
-
-
-$$ z^⋆ = \begin{bmatrix}z^*_1 \\z^*_2 \end{bmatrix} = \begin{bmatrix}f_1(z^*, x) \\f_2(z^*_2, z^*_1) \end{bmatrix} = f(z^*,x) $$
-
-$$z^⋆ = \begin{bmatrix}z^*_1 \\z^*_2 \end{bmatrix} = \begin{bmatrix}f_1(z^*, x) \\f_2(z^*_2, z^*_1) \end{bmatrix} = f(z^*,x)$$
-
-$z^⋆ = \begin{bmatrix}z_1^* \\z_2^* \end{bmatrix} = \begin{bmatrix}f_1(z^*, x) \\f_2(z_2^*, z_1^*) \end{bmatrix} = f(z^*,x)$
-
 
 
 #### `DEQ Backpropagation`
