@@ -112,7 +112,17 @@ Material: https://en.wikipedia.org/wiki/Image_registration
 ----
 
 
+----
+##### `Studylist`
 
+(1) Non-linear root finding algorithm
+(2) 
+(3) 
+(4) 
+(5) 
+(6) 
+
+----
 
 
 
@@ -217,6 +227,8 @@ a variety of large-scale vision and NLP tasks
 
 ! finding: When we iterate i by infinite time, for most “typical” deep layers the valued actually converge to a fixed point or equilibrium point: z*.
 
+! Base story: We don't care to solve for the equilibrium point; but we can use any non-linear root finding algorithm to do so (and also to solve the backward pass).
+
 + Optimal formula: input injection Ux is required in the model. Because the equilibrium point doesn’t depend on any “initial” value of z1.
 ```
 
@@ -270,6 +282,21 @@ $$z^⋆=f(z^⋆,x)⟺z^⋆_1=g_1(x),z^⋆_2=g_2(z^⋆_1)=g_2(g_1(x))$$
 Note: if we compute an equilibirum point of this function, then the second component $z^⋆_2$ is precisely the output of the original concatenated network.
 
 
+```diff
++ f: cell more than layer. Residual block, Transformer block, LSTM cell, etc
+```
+
+
+#### `DEQ Training`
+
+##### `Forward pass`
+
+> <img width="350" alt="IMG" src="https://user-images.githubusercontent.com/73331241/178188889-1146e929-b3fd-41db-b451-c436d6680e94.png">
+
+
+##### `Backward pass`
+
+> <img width="350" alt="IMG" src="https://user-images.githubusercontent.com/73331241/178188898-176493f5-2ab6-4891-bb6d-e63096486674.png">
 
 #### `DEQ Backpropagation`
 
