@@ -135,28 +135,32 @@ Material: https://en.wikipedia.org/wiki/Image_registration
 ----
 ##### `Outline`
 
-(1) Backround and applications of implicit layers
+(1) Background and applications of implicit layers
+
 (2) The mathematics of implicit layers
+
 (3) Deep Equilibrium Models
+
 (4) Neural ODEs
+
 (5) Differentiable optimization
+
 (6) Future directions
 
 ----
 
 Layer: Differentiable parametric function
 
-Explicit vs. Implicit layers
 
-Explicit layers: All commonly-used layers
-
-Implicit layers examples: Differential equations, fixed point iteration, optimzation solutions
 
 Explicit Layers  	      |      Implicit Layers
 :---------------: | :-------------:
 Computation graph for computing the forward pass, and backprop through it.  | Satisfying some joint condition of the input and output
 
 > <img width="200" alt="IMG" src="https://user-images.githubusercontent.com/73331241/177073666-a100bf07-ad31-4c04-82d0-ab826a4a3fad.png">
+
+Simple-looking implicit equation can be (1) recurrent backprop models or deep equilibrium models; (2)differential equations(leading to Neural ODEs); (3) Optimality conditions of optimization problems(leadings to differentiable optimization approaches.)
+
 
 Why use implicit layers?  	      
 :---------------: 
