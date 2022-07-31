@@ -162,7 +162,10 @@ Computation graph for computing the forward pass, and backprop through it.  | Sa
 Simple-looking implicit equation can be (1) recurrent backprop models or deep equilibrium models; (2)differential equations(leading to Neural ODEs); (3) Optimality conditions of optimization problems(leadings to differentiable optimization approaches.)
 
 
-Why use implicit layers?  	      
+Why use implicit layers?
+
+> We can use the implicit function theorem to directly compute gradients at the solution point of these equations, without having to store any intermediate variables along the way.
+
 :---------------: 
 Powerful representations: 
 Memory efficiency
